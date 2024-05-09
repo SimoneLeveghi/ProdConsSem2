@@ -7,8 +7,10 @@ public class ProdConsSem {
     public static void main(String[] args) {
         Semaphore pieno = new Semaphore(0);
         Semaphore vuoto = new Semaphore(1);
-        ProduciDato prod = new ProduciDato(pieno, vuoto, Operazione.ADDIZIONE, 1);
-        ProduciDato prod2 = new ProduciDato(pieno, vuoto, Operazione.MOLTIPLICAZIONE, 2);
+        Semaphore moltiplicazione = new Semaphore(0);
+
+        ProduciDato prod = new ProduciDato(pieno, vuoto, moltiplicazione);
+        ProduciDato prod2 = new ProduciDato(pieno, vuoto, moltiplicazione);
         ConsumaDato cons = new ConsumaDato(pieno, vuoto);
         ConsumaDato cons2 = new ConsumaDato(pieno, vuoto);
 
